@@ -5,6 +5,9 @@ console.log(uri);
 
 const client = new MongoClient(uri);
 const dbname = "socialmedia";
+const collectionName = "user";
+
+const userCollection = client.db(dbname).collection(collectionName)
 
 const connectToDataBase = async () =>{
     try {
