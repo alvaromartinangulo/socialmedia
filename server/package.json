@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "start": "nodemon index.js"
   },
@@ -11,10 +11,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
+    "concurrently": "^8.2.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "mongoose": "^7.2.2",
-    "nodemon": "^2.0.22"
+    "is-empty": "^1.2.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.2.3",
+    "nodemon": "^2.0.22",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1",
+    "validator": "^13.9.0"
   }
 }
