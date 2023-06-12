@@ -1,7 +1,8 @@
 import User from "../models/user.js"
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken"
-import { validateRegisterInput,validateLoginInput } from "../validation/register.js";
+import validateRegisterInput from "../validation/register.js";
+import validateLoginInput from "../validation/login.js";
 
 export const registerUser = async (req, res) =>{
     //Validate form

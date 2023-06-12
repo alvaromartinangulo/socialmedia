@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import passport from 'passport';
 import postRouters from './routes/posts.js';
-import userRouters from './routes/users,js';
+import userRouters from './routes/users.js';
 
 const app = express();
 
@@ -16,7 +16,7 @@ app.use(cors());
 app.use(passport.initialize());
 
 // Passport config
-require("./config/passport")(passport);
+import passportConfig from './config/passport.js';
 
 //Use all the routes
 app.use('/posts', postRouters);
