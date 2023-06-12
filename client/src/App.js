@@ -1,39 +1,19 @@
-import React, {useEffect} from 'react';
-import { Container, AppBar, Typography, Grow, Grid} from '@material-ui/core';
-import { useDispatch } from 'react-redux';
-import {getPosts} from './actions/posts';
-import Posts from './components/Posts/Posts'; 
-import Form from './components/Form/Form';
-import useStyles from './styles';
-
-const App = () =>{
-    const classes = useStyles();
-    const dispatch = useDispatch();
-
-    useEffect(() =>{
-        dispatch(getPosts());
-    }, [dispatch])
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Landing from "./components/layout/Landing.js";
+import Register from "./components/Auth/Register.js";
+import Login from "./components/Auth/Login.js";
+class App extends Component {
+  render() {
     return (
-        <Container maxWidth ="lg">
-            <AppBar className={classes.appBar} position='static' color="inherit">
-                <Typography className={classes.heading} variant="h2" align="center">
-                    Social Media
-                </Typography>
-            </AppBar>
-            <Grow in>
-                <Container>
-                    <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
-                        <Grid item xs={12} sm={7}>
-                            <Posts/>
-                        </Grid>
-                        <Grid item xs={12} sm={4}>
-                            <Form/>
-                        </Grid>
-                    </Grid>
-                </Container>
-            </Grow>
-        </Container>
+      <Router>
+        <div className="App">
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/login" component={Login} />
+        </div>
+      </Router>
     );
+  }
 }
-
 export default App;
