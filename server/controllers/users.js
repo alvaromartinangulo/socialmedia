@@ -18,7 +18,7 @@ export const registerUser = async (req, res) =>{
         return res.status(400).json({ email: "Email already exists" });
     } else {
         const newUser = new User({
-        name: req.body.name,
+        userName: req.body.userName,
         email: req.body.email,
         password: req.body.password
         });
@@ -59,7 +59,7 @@ export const loginUser = (req, res) => {
           // Create JWT Payload
           const payload = {
             id: user.id,
-            name: user.name
+            userName: user.userName
           };
   // Sign token
           jwt.sign(
