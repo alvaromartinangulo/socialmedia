@@ -1,12 +1,9 @@
 import express from "express";
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
-import passport from "passport";
+import { loginUser, registerUser } from "../controllers/users";
 
 const router = express.Router();
-//Input validation
-const validateRegisterInput = require("../../validation/register");
-const validateLoginInput = require("../../validation/login");
 
-//User model
-const User = require("../../models/user");
+router.post("/", registerUser);
+router.post("/", loginUser);
+
+export default router;
