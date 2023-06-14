@@ -4,13 +4,13 @@ import isEmpty from "is-empty";
 export default function validateRegisterInput(data){
     let errors = {};
 // Convert empty fields to an empty string so we can use validator functions
-    data.userName = !isEmpty(data.userName) ? data.userNname : "";
+    data.username = !isEmpty(data.username) ? data.userNname : "";
     data.email = !isEmpty(data.email) ? data.email : "";
     data.password = !isEmpty(data.password) ? data.password : "";
     data.password2 = !isEmpty(data.password2) ? data.password2 : "";
-    // userName checks
-    if (validator.isEmpty(data.userName)) {
-        errors.userName = "userName field is required";
+    // username checks
+    if (validator.isEmpty(data.username)) {
+        errors.username = "username field is required";
     }
     // Email checks
     if (validator.isEmpty(data.email)) {
