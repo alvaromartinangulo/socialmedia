@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const userSchema = mongoose.Schema({
-    userName: {
+      username: {
         type: String,
         required: true
       },
@@ -13,11 +13,13 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
       },
-      date: {
-        type: Date,
-        default: Date.now
-      }
-})
+      profilePicture: String,
+      about: String,
+      country: String,
+      followers: [],
+      following: [],
+
+}, {timestamps: true});
 
 const User = mongoose.model('User', userSchema);
 
