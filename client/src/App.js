@@ -1,10 +1,8 @@
 import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Home from "./pages/Home";
-import Auth from "./pages/Auth/Auth";
-import Profile from "./pages/Profile/Profile";
+import Auth from "./components/Auth/Auth";
+import Home from "./components/Home/Home";
 import { useSelector } from "react-redux";
-import Chat from "./pages/Chat/Chat";
 
 function App() {
   const user = useSelector((state) => state.authReducer.authData);
@@ -18,8 +16,6 @@ function App() {
             : "auto",
       }}
     >
-      <div className="blur" style={{ top: "-18%", right: "0" }}></div>
-      <div className="blur" style={{ top: "36%", left: "-8rem" }}></div>
       <Routes>
         <Route
           path="/"
@@ -32,7 +28,7 @@ function App() {
         <Route
           path="/auth"
           element={user ? <Navigate to="../home" /> : <Auth />}
-        />
+        />{/* 
         <Route
           path="/profile/:id"
           element={user ? <Profile /> : <Navigate to="../auth" />}
@@ -49,7 +45,7 @@ function App() {
         <Route
           path="/chat"
           element={user ? <Chat /> : <Navigate to="../auth" />}
-        />
+        /> */}
       </Routes>
     </div>
   );
