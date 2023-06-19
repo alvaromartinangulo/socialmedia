@@ -19,15 +19,15 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={user ? <Navigate to="home" /> : <Navigate to="auth" />}
+          element={<Navigate to="home" />}
         />
         <Route
           path="/home"
-          element={user ? <Home /> : <Navigate to="../auth" />}
+          element={<Home />}
         />
         <Route
           path="/auth"
-          element={user ? <Navigate to="../home" /> : <Auth />}
+          element={<Auth />}
         />{/* 
         <Route
           path="/profile/:id"

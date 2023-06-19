@@ -1,0 +1,75 @@
+* {
+    font-family: "Poppins", Helvetica, sans-serif, !important;
+}
+
+h1{
+    font-weight: 700;
+}
+h2{
+    font-weight: 650;
+}
+h3{
+    font-weight: 500;
+}
+h4{
+    font-weight: 400;
+}
+h5{
+    font-weight: 300;
+}
+h6{
+    font-weight: 200;
+}
+
+.infoForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .infoInput{
+    border: none;
+    outline: none;
+    background-color: var(--inputColor);
+    border-radius: 8px;
+    padding: 20px;
+    flex:1;
+  }
+  
+  .infoForm>div{
+    display: flex;
+    gap: 1rem;
+    height: 2rem;
+    width: 90%;
+  }
+
+.infoButton{
+    width: 6rem;
+    height: 2rem;
+    align-self: flex-end;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    background: linear-gradient(98.63deg, #f9a225 0%, #f95f35 100%);
+    transition: all 100ms ease-out;
+  }
+  
+  .button:hover {
+    color: orange;
+    border: 2px solid orange;
+    cursor: pointer;
+    background: transparent;
+  }
+  
+  .button:disabled{
+    background: rgb(209, 202, 202);
+    pointer-events: none;
+  }

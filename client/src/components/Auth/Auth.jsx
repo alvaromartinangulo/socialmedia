@@ -1,12 +1,11 @@
 import React, { useState } from "react";
+import "./Auth.css";
 import { logIn, signUp } from "../../actions/authActions.js";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
   const initialState = {
-    firstname: "",
-    lastname: "",
     username: "",
     email:"",
     password: "",
@@ -53,9 +52,9 @@ const Auth = () => {
 
       <div className="a-left">
 
-        <div className="Webname">
-          <h1>ZKC Media</h1>
-          <h6>Explore the ideas throughout the world</h6>
+        <div>
+          <h1>Shopping Media</h1>
+          <h6>Shopping made easy</h6>
         </div>
       </div>
 
@@ -63,30 +62,7 @@ const Auth = () => {
 
       <div className="a-right">
         <form className="infoForm authForm" onSubmit={handleSubmit}>
-          <h3>{isSignUp ? "Register" : "Login"}</h3>
-          {isSignUp && (
-            <div>
-              <input
-                required
-                type="text"
-                placeholder="First Name"
-                className="infoInput"
-                name="firstname"
-                value={data.firstname}
-                onChange={handleChange}
-              />
-              <input
-                required
-                type="text"
-                placeholder="Last Name"
-                className="infoInput"
-                name="lastname"
-                value={data.lastname}
-                onChange={handleChange}
-              />
-            </div>
-          )}
-
+          <h2>{isSignUp ? "Register" : "Login"}</h2>
           <div>
             <input
               required
@@ -95,6 +71,18 @@ const Auth = () => {
               className="infoInput"
               name="username"
               value={data.username}
+              onChange={handleChange}
+            />
+
+          </div>
+          <div>
+            <input
+              required
+              type="text"
+              placeholder="Email"
+              className="infoInput"
+              name="email"
+              value={data.email}
               onChange={handleChange}
             />
           </div>
@@ -108,6 +96,8 @@ const Auth = () => {
               value={data.password}
               onChange={handleChange}
             />
+          </div>
+          <div style={{display: isSignUp ? "flex" : "none"}}>
             {isSignUp && (
               <input
                 required
@@ -123,7 +113,6 @@ const Auth = () => {
           <span
             style={{
               color: "red",
-              fontSize: "12px",
               alignSelf: "flex-end",
               marginRight: "5px",
               display: confirmPass ? "none" : "block",
@@ -132,9 +121,11 @@ const Auth = () => {
             *Confirm password is not same
           </span>
           <div>
+            {isSignUp
+                ? "Already have an account? "
+                : "Don't have an account? " }
             <span
               style={{
-                fontSize: "12px",
                 cursor: "pointer",
                 textDecoration: "underline",
               }}
@@ -143,16 +134,14 @@ const Auth = () => {
                 setIsSignUp((prev) => !prev);
               }}
             >
-              {isSignUp
-                ? "Already have an account Login"
-                : "Don't have an account Sign up"}
+              {isSignUp ? "Login" : "Sign up"}
             </span>
             <button
               className="button infoButton"
               type="Submit"
               disabled={loading}
             >
-              {loading ? "Loading..." : isSignUp ? "SignUp" : "Login"}
+              {loading ? "Loading..." : isSignUp ? "Sign Up" : "Login"}
             </button>
           </div>
         </form>

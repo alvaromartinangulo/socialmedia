@@ -13,6 +13,8 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
       },
+      firstname: String,
+      lastname: String,
       profilePicture: String,
       about: String,
       country: String,

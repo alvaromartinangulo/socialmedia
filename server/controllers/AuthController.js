@@ -8,11 +8,11 @@ import validateLoginInput from "../validation/login.js";
 export const registerUser = async (req, res) => {
   
   //Validate input
-  const { errors, isValid } = validateRegisterInput(req.body);
+/*   const { errors, isValid } = validateRegisterInput(req.body);
 
   if (!isValid) {
     return res.status(400).json(errors);
-  }
+  } */
 
   try {
     //Check if username exists
@@ -21,7 +21,7 @@ export const registerUser = async (req, res) => {
       return res.status(400).json({ message: "UserName already registered" });
     }
 
-    const existsEmail = await UserModel.findOne({email: newUser.email})
+    const existsEmail = await UserModel.findOne({email: req.body.email})
     if (existsEmail){
       return res.status(400).json({ message: "Email already registered" });
     }
