@@ -6,16 +6,19 @@
     --palette-grey: #222425;
     color: var(--palette-yellow);
     background-color: var(--palette-red);
-    margin: 1rem 1rem;
+    margin: 2rem 2rem;
   }
 
 h1{
     font-weight: 900;
-    font-size: 5rem;
+    font-size: 10rem;
+    line-height: 0.2rem;
 }
 h2{
     font-weight: 800;
     font-size: 4rem;
+    line-height: 1rem;
+
 }
 h3{
     font-weight: 700;
