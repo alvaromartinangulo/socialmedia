@@ -53,8 +53,8 @@ const Auth = () => {
       <div className="a-left">
 
         <div>
-          <h1>Stillo</h1>
-          <h6>Shopping made easy</h6>
+          <h1>STILLO</h1>
+          <h3>Shopping made easy</h3>
         </div>
       </div>
 

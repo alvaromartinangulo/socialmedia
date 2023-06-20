@@ -1,24 +1,37 @@
-* {
-    font-family: "Poppins", Helvetica, sans-serif, !important;
-}
+:root {
+    font-family:'Oak Sans' !important;
+    --palette-yellow: #F0F0D5;
+    --palette-red: #E74144;
+    --palette-navy: #0F2B4A;
+    --palette-grey: #222425;
+    color: var(--palette-yellow);
+    background-color: var(--palette-red);
+    margin: 1rem 1rem;
+  }
 
 h1{
-    font-weight: 700;
+    font-weight: 900;
+    font-size: 5rem;
 }
 h2{
-    font-weight: 650;
+    font-weight: 800;
+    font-size: 4rem;
 }
 h3{
-    font-weight: 500;
+    font-weight: 700;
+    font-size: 3rem
 }
 h4{
-    font-weight: 400;
+    font-weight: 600;
+    font-size: 1rem;
 }
 h5{
-    font-weight: 300;
+    font-weight: 400;
+    font-size: 1rem
 }
 h6{
-    font-weight: 200;
+    font-weight: 300;
+    font-size:0.5rem;
 }
 
 .infoForm{
@@ -52,24 +65,72 @@ h6{
 }
 
 .button {
+    font-size: 1rem;
+    font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
-    background: linear-gradient(98.63deg, #f9a225 0%, #f95f35 100%);
+    color: var(--palette-red);
+    border: 0.2rem solid transparent;
+    padding: 0.7rem;
+    border-radius: 2rem ;
+    background: var(--palette-yellow);
     transition: all 100ms ease-out;
   }
   
   .button:hover {
-    color: orange;
-    border: 2px solid orange;
+    color: var(--palette-yellow);
+    border: 0.2rem solid var(--palette-yellow);
     cursor: pointer;
     background: transparent;
   }
-  
   .button:disabled{
-    background: rgb(209, 202, 202);
     pointer-events: none;
   }
+
+  .buttoninverted{
+    font-size: 1rem;
+    font-weight: 600;
+    display: inline-block;
+    position:relative;
+    border: none;
+    color:var(--palette-yellow);
+    background-color: var(--palette-red);
+    padding-bottom: 2px;
+  }
+
+  .buttoninverted:after{
+  content: '';
+  position: absolute;
+  width: 90%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0.2rem;
+  background-color: var(--palette-yellow);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+  }
+  .buttoninverted:hover{
+    cursor: pointer;
+  }
+
+  .buttoninverted:hover:after{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+.logo{
+  font-size: 3rem;
+  background: var(--palette-yellow);
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  color: var(--palette-red);
+  display: inline-block;
+  font-weight: 850;
+  line-height: 3.5rem;
+  margin-right: 5px;
+  text-align: center;
+  width: 3.5rem;
+}

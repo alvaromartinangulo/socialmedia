@@ -31,7 +31,7 @@
   
   
   .authForm{
-      background-color: whitesmoke;
+      background-color: var(--palette-red);
       border-radius: 1rem;
       padding: 1rem;
   }

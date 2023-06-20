@@ -2,6 +2,7 @@ import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Auth from "./components/Auth/Auth";
 import Home from "./components/Home/Home";
+import Landing from "./components/Landing/Landing";
 import { useSelector } from "react-redux";
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Navigate to="home" />}
+          element={<Landing/>}
         />
         <Route
           path="/home"
