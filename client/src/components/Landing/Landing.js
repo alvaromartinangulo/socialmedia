@@ -13,6 +13,7 @@ const Landing = () => {
 	const typed = React.useRef(null);
     const[productIndex, setProductIndex] = useState(0)
     const[animation, setAnimation] = useState(0)
+    const [animationOut, setAnimationOut] = useState(0)
     const products = [
         {
             category: "Hoodies",
@@ -52,15 +53,17 @@ const Landing = () => {
         'SHIRT',
         'CAP'
       ],
-      typeSpeed: 90,
-      backSpeed: 90,
+      typeSpeed: 80,
+      backSpeed: 60,
       loop: true,
-      backDelay: 1500,
+      backDelay: 2000,
+      preStringTyped: (arrayPos, self) => {
+        setAnimation(2);
+      },
       onStringTyped: (arrayPos, self) => {
-        setProductIndex(arrayPos);
-        console.log(animation)
         setAnimation(1);
-        console.log(animation)
+        setProductIndex(arrayPos);
+
       }
     };
     
@@ -89,27 +92,36 @@ const Landing = () => {
                 <div className="columnleft">
                     <div className="rectangle"></div>
                     <img
-                    className="image"
+                    className="img"
                     src={`${products[productIndex].image}`}
-                    onAnimationEnd={() => setAnimation(0)}
+                    onAnimationEnd={() => animation == 1 ? setAnimation(-1) : setAnimation(-2)}
                     animation ={animation}/>
                     <div className="procuctcontainer">
                         <div className="productinside">
-                            <div className="category">{products[productIndex].category}</div>
-                            <div className="price">{products[productIndex].price}</div>
-                            <div className="productname">{products[productIndex].name}</div>
-                            <div className="brand">{products[productIndex].brand}</div>
+                            <div className="category">
+                                <div className="categorytext"
+                                animation={animation}>{products[productIndex].category}</div></div>
+                            <div className="price"
+                            animation={animation}>{products[productIndex].price}</div>
+                            <div className="productname"
+                            animation={animation}>{products[productIndex].name}</div>
+                            <div className="brand"
+                            animation={animation}>{products[productIndex].brand}</div>
                         </div>
                     </div>
                 </div>
                 <div className="columnright">
-                    <h1>STILLO</h1>
+                    <br/>
+                    <h1>STILLO.</h1>
+                    <br/>
                     <h2>FIND</h2>
                     <h2>YOUR NEW</h2>
                     <h2>FAVOURITE</h2>
-                    <h2><span ref={el} /></h2>
                 </div>
             </div>
+            <div className="footer"><div className="type-wrap"><h3><span ref={el} /></h3></div></div>
+            
+
         </div>
     )
 }

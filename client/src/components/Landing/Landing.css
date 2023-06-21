@@ -1,6 +1,8 @@
 .container{
     height: 100%;
+    width:100%
 }
+
 nav{
     display: flex;
     width: 95%;
@@ -13,7 +15,7 @@ a{
 }
 .row{
     display: flex;
-    padding: 5%;
+    padding: 2% 2% 0%;
 }
 .columnleft{
     flex:45%;
@@ -30,46 +32,69 @@ a{
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-    height: 35rem;
-    width: 20rem;
+    height: 32rem;
+    width: 18rem;
     z-index: -2;
-    left: 40%;
+    left: 20%;
     top:10%;
 }
 .columnleft img{
-    left:30%;
+    left:15%;
+    top:5%; 
     position:absolute;
-    max-width: 25rem;
-    max-height:25rem;
+    max-width: 23rem;
+    max-height:23rem;
 }
-.img[animation='1']{
-    animation: wobble 1s 1;
+.img[animation='1'], .categorytext[animation='1'], .price[animation='1'], .brand[animation='1'], .productname[animation='1']{
+    animation: fade-in 1s 1;
 }
-@keyframes wobble {
-    25% {
-      transform: rotate(15deg);
+.img[animation='2'], .categorytext[animation='2'], .price[animation='2'], .brand[animation='2'], .productname[animation='2']{
+    animation: fade-out 1s 1;
+}
+.img[animation='-1'], .categorytext[animation='-1'], .price[animation='-1'], .brand[animation='-1'], .productname[animation='-1']{
+    opacity:1;
+}
+.img[animation='-2'], .categorytext[animation='-2'], .price[animation='-2'], .brand[animation='-2'], .productname[animation='-2']{
+    opacity:0;
+}
+@keyframes fade-in {
+    0%{
+        opacity: 0;
     }
-    50% {
-      transform: rotate(-30deg);
+    25%{
+        opacity: 0;
     }
-    75% {
-      transform: rotate(5deg);
+    75%{
+        opacity: 1;
     }
-    100% {
-      transform: rotate(0deg);
+    100%{
+        opacity: 1
     }
   }
-
+  @keyframes fade-out {
+    0%{
+        opacity: 1;
+    }
+    25%{
+        opacity: 1;
+    }
+    75%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+    }
+  }
 .procuctcontainer{
     position:absolute;
     background-color: var(--palette-yellow);
     width: 15rem;
-    height:20rem;
+    height:19rem;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     border-radius: 6px;
     z-index: -1;
-    left: 60%;
-    top: 40%;
+    left: 38%;
+    top: 34%;
 }
 .productinside{
     width:100%;
@@ -81,24 +106,27 @@ a{
 .category{
     position: absolute;
     top:50%;
-    color: var(--palette-yellow);
     width:85%;
     background-color: var(--palette-grey);
     border-radius: 5px;
     padding: 1% 0 2% 4%;
     text-align:left;
+}
+.categorytext{
+    color: var(--palette-yellow);
     font-weight: 600;
+    font-size: 0.9rem;
 }
 .price{
     position:absolute;
-    top:60%;
-    font-size: 1.5rem;
+    top:63%;
+    font-size: 1rem;
     font-weight: 700;
 }
 .productname{
     position:absolute;
-    top:70%;
-    font-size: 1rem;
+    top:73%;
+    font-size: 0.7rem;
     font-weight: 700;
 }
 .brand{
@@ -106,4 +134,17 @@ a{
     top:90%;
     font-size: 0.5rem;
     font-weight: 600;
+}
+
+.type-wrap {
+    background: rgba( 255, 255, 255, 0.3 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: #CCC 1px solid;
+    text-align: right;
+    padding: 0 1% 0 0;
+}
+.footer{
+    padding:0% 2% 0% 11%;
 }

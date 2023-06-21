@@ -1,28 +1,30 @@
 :root {
     font-family:'Oak Sans' !important;
     --palette-yellow: #F0F0D5;
-    --palette-red: #E74144;
-    --palette-navy: #0F2B4A;
-    --palette-grey: #222425;
+    --palette-red:#222425 ;
+    --palette-navy: #E74144;
+    --palette-grey: #222425 ;
     color: var(--palette-yellow);
     background-color: var(--palette-red);
-    margin: 2rem 2rem;
+    margin: 1rem 1rem;
   }
 
 h1{
     font-weight: 900;
-    font-size: 10rem;
+    font-size: 13rem;
     line-height: 0.2rem;
 }
 h2{
     font-weight: 800;
-    font-size: 4rem;
+    font-size: 5.5rem;
     line-height: 1rem;
 
 }
 h3{
     font-weight: 700;
-    font-size: 3rem
+    font-size: 2rem;
+    line-height: 0.05rem;
+
 }
 h4{
     font-weight: 600;
