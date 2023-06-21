@@ -1,6 +1,6 @@
 .container{
     height: 100%;
-    width:100%
+    width:100%;
 }
 
 nav{
@@ -28,22 +28,22 @@ a{
 .rectangle{
     position: absolute;
     background: rgba( 255, 255, 255, 0.3 );
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
-    border-radius: 10px;
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px );
+    border-radius: 25px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-    height: 32rem;
-    width: 18rem;
+    height: 56rem;
+    width: 27rem;
     z-index: -2;
     left: 20%;
-    top:10%;
+    top:15%;
 }
 .columnleft img{
-    left:15%;
-    top:5%; 
+    left:19%;
+    top:10%; 
     position:absolute;
-    max-width: 23rem;
-    max-height:23rem;
+    max-width: 30rem;
+    max-height:30rem;
 }
 .img[animation='1'], .categorytext[animation='1'], .price[animation='1'], .brand[animation='1'], .productname[animation='1']{
     animation: fade-in 1s 1;
@@ -88,13 +88,13 @@ a{
 .procuctcontainer{
     position:absolute;
     background-color: var(--palette-yellow);
-    width: 15rem;
-    height:19rem;
+    width: 22.5rem;
+    height:26.7rem;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     border-radius: 6px;
     z-index: -1;
-    left: 38%;
-    top: 34%;
+    left: 44%;
+    top: 40%;
 }
 .productinside{
     width:100%;
@@ -115,24 +115,24 @@ a{
 .categorytext{
     color: var(--palette-yellow);
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 1.3rem;
 }
 .price{
     position:absolute;
     top:63%;
-    font-size: 1rem;
+    font-size: 2rem;
     font-weight: 700;
 }
 .productname{
     position:absolute;
     top:73%;
-    font-size: 0.7rem;
+    font-size: 1.5rem;
     font-weight: 700;
 }
 .brand{
     position:absolute;
     top:90%;
-    font-size: 0.5rem;
+    font-size: 0.7rem;
     font-weight: 600;
 }
 
@@ -146,5 +146,11 @@ a{
     padding: 0 1% 0 0;
 }
 .footer{
-    padding:0% 2% 0% 11%;
+    padding:0% 0% 0% 42%;
+}
+h1{
+    margin: 25% 0 25% 0;
+}
+h2{
+    position: relative;
 }

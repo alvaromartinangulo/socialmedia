@@ -7,6 +7,8 @@
     color: var(--palette-yellow);
     background-color: var(--palette-red);
     margin: 1rem 1rem;
+    overflow:hidden;
+
   }
 
 h1{

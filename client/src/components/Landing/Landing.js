@@ -111,15 +111,15 @@ const Landing = () => {
                     </div>
                 </div>
                 <div className="columnright">
-                    <br/>
                     <h1>STILLO.</h1>
-                    <br/>
                     <h2>FIND</h2>
                     <h2>YOUR NEW</h2>
                     <h2>FAVOURITE</h2>
+                    <div className="footer">                    
+                    <div className="type-wrap"><h3><span ref={el} /></h3></div>
+                    </div>
                 </div>
             </div>
-            <div className="footer"><div className="type-wrap"><h3><span ref={el} /></h3></div></div>
             
 
         </div>
