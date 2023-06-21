@@ -41,48 +41,19 @@ h6{
     font-size:0.5rem;
 }
 
-.infoForm{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-  }
-  
-  .infoInput{
-    border: none;
-    outline: none;
-    background-color: var(--inputColor);
-    border-radius: 8px;
-    padding: 20px;
-    flex:1;
-  }
-  
-  .infoForm>div{
-    display: flex;
-    gap: 1rem;
-    height: 2rem;
-    width: 90%;
-  }
-
-.infoButton{
-    width: 6rem;
-    height: 2rem;
-    align-self: flex-end;
-}
-
 .button {
     font-size: 1rem;
     font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--palette-red);
+    color: var(--palette-grey);
     border: 0.2rem solid transparent;
     padding: 0.7rem;
     border-radius: 2rem ;
     background: var(--palette-yellow);
     transition: all 100ms ease-out;
+  
   }
   
   .button:hover {
@@ -117,6 +88,8 @@ h6{
   background-color: var(--palette-yellow);
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
+  text-decoration: none;
+
   }
   .buttoninverted:hover{
     cursor: pointer;
@@ -140,4 +113,10 @@ h6{
   margin-right: 5px;
   text-align: center;
   width: 3.5rem;
+}
+nav{
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
+  height: 0rem;
 }

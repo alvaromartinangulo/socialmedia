@@ -6,14 +6,15 @@ import cap from "../Images/cap.png";
 import fakegods from "../Images/fakegods.png";
 import pants from "../Images/pants.png";
 import shirt from "../Images/shirt.png";
+import { Link } from 'react-router-dom';
+
 
 const Landing = () => {
     const el = React.useRef(null);
   // Create reference to store the Typed instance itself
 	const typed = React.useRef(null);
     const[productIndex, setProductIndex] = useState(0)
-    const[animation, setAnimation] = useState(0)
-    const [animationOut, setAnimationOut] = useState(0)
+    const[animation, setAnimation] = useState(-2)
     const products = [
         {
             category: "Hoodies",
@@ -80,12 +81,14 @@ const Landing = () => {
     return (
         <div className = "container">
             <nav>
-                <span class="leftallignnav">
+                <span className="leftallignnav">
                     <a><span className="logo">S</span></a>
                 </span>
-                <span class="rightallignnav">
-                    <a><button className="button">Log In</button></a>
-                    <a><button className="buttoninverted">Sign Up</button></a>
+                <span className="rightallignnav">
+                    <Link to= "/auth"
+                    state={{signUp: false}}><button className="button">Log In</button></Link>
+                    <Link to= "/auth"
+                    state={{signUp: true}}><button className="buttoninverted">Sign Up</button></Link>
                 </span>
             </nav>
             <div className="row">

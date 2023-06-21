@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Auth.css";
 import { logIn, signUp } from "../../actions/authActions.js";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Auth = () => {
   const initialState = {
@@ -14,13 +14,12 @@ const Auth = () => {
   const loading = useSelector((state) => state.authReducer.loading);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [isSignUp, setIsSignUp] = useState(false);
+  const location = useLocation();
+  const [isSignUp, setIsSignUp] = useState(location.state?.signUp ? true : false);
 
   const [data, setData] = useState(initialState);
 
   const [confirmPass, setConfirmPass] = useState(true);
-
-  // const dispatch = useDispatch()
 
   // Reset Form
   const resetForm = () => {
@@ -47,13 +46,16 @@ const Auth = () => {
   };
 
   return (
+    <>
+    <nav><a><span className="logo">S</span></a>
+    </nav>
     <div className="Auth">
       {/* left side */}
-
+      
       <div className="a-left">
 
         <div>
-          <h1>STILLO</h1>
+          <h1>STILLO.</h1>
           <h3>Shopping made easy</h3>
         </div>
       </div>
@@ -62,9 +64,9 @@ const Auth = () => {
 
       <div className="a-right">
         <form className="infoForm authForm" onSubmit={handleSubmit}>
-          <h2>{isSignUp ? "Register" : "Login"}</h2>
-          <div>
-            <input
+          <h2>{isSignUp ? "Sign Up" : "Log in"}</h2>
+          <div style={{display: isSignUp ? "flex" : "none"}}>
+          {isSignUp && (<input
               required
               type="text"
               placeholder="Username"
@@ -72,8 +74,7 @@ const Auth = () => {
               name="username"
               value={data.username}
               onChange={handleChange}
-            />
-
+            />)}
           </div>
           <div>
             <input
@@ -134,19 +135,20 @@ const Auth = () => {
                 setIsSignUp((prev) => !prev);
               }}
             >
-              {isSignUp ? "Login" : "Sign up"}
+              {isSignUp ? "Log in" : "Sign up"}
             </span>
             <button
               className="button infoButton"
               type="Submit"
               disabled={loading}
             >
-              {loading ? "Loading..." : isSignUp ? "Sign Up" : "Login"}
+              {loading ? "Loading..." : isSignUp ? "Sign Up" : "Log in"}
             </button>
           </div>
         </form>
       </div>
     </div>
+    </>
   );
 };
 

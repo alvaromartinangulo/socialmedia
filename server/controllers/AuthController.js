@@ -51,10 +51,10 @@ export const registerUser = async (req, res) => {
 // Login User
 
 export const loginUser = async (req, res) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
 
   try {
-    const user = await UserModel.findOne({ username: username });
+    const user = await UserModel.findOne({ email: email });
 
     if (user) {
       const validity = await bcrypt.compare(password, user.password);
