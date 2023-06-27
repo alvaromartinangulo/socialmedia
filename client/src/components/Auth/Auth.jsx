@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Auth.css";
-import { logIn, signUp, logInGoogle } from "../../actions/authActions.js";
+import { logIn, signUp, logInGoogle } from "../../actions/AuthActions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import { GoogleLogin } from '@react-oauth/google';

@@ -18,6 +18,7 @@ const userSchema = mongoose.Schema({
       country: String,
       followers: [],
       following: [],
+      likedPosts:[],
 
 }, {timestamps: true});
 

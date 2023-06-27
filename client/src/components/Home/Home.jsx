@@ -1,9 +1,9 @@
 import React from "react";
-
+import Posts from "../Posts/Posts"
 const Home = () =>{
     return (
         <div className="Home">
-            <h1>Welcome to home</h1>
+            <Posts/>
         </div>
     )
 }

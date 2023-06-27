@@ -5,6 +5,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import PostRoute from './routes/PostRoute.js';
 import AuthRoute from './routes/AuthRoute.js';
+import UserRoute from './routes/UserRoute.js';
+
 
 const app = express();
 //Middleware
@@ -21,4 +23,5 @@ mongoose.connect(process.env.MONGOURI, { useNewUrlParser: true, useUnifiedTopolo
 
 //Routes
 app.use('/posts', PostRoute);
-app.use('/auth', AuthRoute)
+app.use('/auth', AuthRoute);
+app.use('/user', UserRoute);
