@@ -1,11 +1,13 @@
 :root {
     font-family:'Oak Sans' !important;
     --palette-yellow: #F0F0D5;
-    --palette-red:#222425 ;
-    --palette-navy: #E74144;
+    --palette-red:#E74144 ;
+    --palette-navy: #222425;
     --palette-grey: #222425 ;
+    --palette-light-grey:#616466;
+    --palette-light-light-grey:#bec2c5;
     color: var(--palette-yellow);
-    background-color: var(--palette-red);
+    background-color: var(--palette-grey);
     margin: 1rem 1rem;
     overflow:hidden;
 
@@ -73,7 +75,7 @@ h6{
     position:relative;
     border: none;
     color:var(--palette-yellow);
-    background-color: var(--palette-red);
+    background-color: var(--palette-grey);
     padding-bottom: 2px;
   }
 
@@ -106,7 +108,7 @@ h6{
   border-radius: 50%;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
-  color: var(--palette-red);
+  color: var(--palette-grey);
   display: inline-block;
   font-weight: 850;
   line-height: 3.5rem;

@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 
 function App() {
   const user = useSelector((state) => state.authReducer.authData);
+
   return (
     <div
       className="App"
@@ -14,7 +15,7 @@ function App() {
         height:
           window.location.href === "http://localhost:3000/chat"
             ? "calc(100vh - 2rem)"
-            : "auto",
+            : "100vh",
       }}
     >
       <Routes>

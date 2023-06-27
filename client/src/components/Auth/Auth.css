@@ -1,71 +1,52 @@
 .Auth {
-    display: flex;
-    height: 100%;
-    gap: 4rem;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   }
   
-  /* left side */
-  .a-left{
-      gap: 2rem;
-      flex:40%;
-      position:relative;
-  }
+.wrapper{
+  width: 20%;
+  text-align: center;
+}
 
-  .a-left div{
-    position:absolute;
-    top:60%;
-  }
-
-
-  /* right side */
-
-  .a-right{
-    gap: 2rem;
-      flex:50%
-  }
-
-  .infoForm{
-    width:30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    background: rgba( 255, 255, 255, 0.3 );
-    backdrop-filter: blur( 10px );
-    -webkit-backdrop-filter: blur( 10px );
-    border-radius: 25px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    border-radius: 1rem;
-    padding: 1rem;
-    position:absolute;
-    top:20%;
-    left:60%
-  }
+.wrapper div{
+  width:100%;
+  margin: 4% 0% 4% 0%;
+}
   
   .infoInput{
-    border: none;
-    outline: none;
-    background: var(--palette-yellow);
-    backdrop-filter: blur( 10px );
-    -webkit-backdrop-filter: blur( 10px );
-    border-radius: 8px;
-    padding: 20px;
-    flex:1;
-    color: var(--palette-grey);
+    border: 0.2rem solid var(--palette-light-light-grey);
+    background: var(--palette-grey);
+    border-radius: 14px;
+    width:92%;
+    color: var(--palette-light-grey);
+    padding: 5% 2% 5% 4%;
   }
   
-  .infoForm>div{
-    display: flex;
-    gap: 1rem;
-    height: 2rem;
+  .authButton{
+    margin: 10% 0% 0% 0%;
+    background: var(--palette-red);
     width: 100%;
-    align-items: center;
-    justify-content: center;
+    color: var(--palette-yellow);
+    border-radius: 10px;
   }
-  
-  .infoButton{
-    width: 6rem;
-    height: 2rem;
-    align-self: flex-end;
+
+  .authButton:hover {
+    color: var(--palette-red);
+    border: 0.2rem solid var(--palette-red);
+    cursor: pointer;
+    background: transparent;
   }
+
+.spacer{
+  margin:40%;
+}
+
+.isSignUp{
+  margin: 10% 0% 10% 0%;
+
+}

@@ -3,6 +3,8 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import validateRegisterInput from "../validation/register.js";
 import validateLoginInput from "../validation/login.js";
+import { OAuth2Client } from "google-auth-library";
+
 
 // Register new user
 export const registerUser = async (req, res) => {
@@ -76,3 +78,34 @@ export const loginUser = async (req, res) => {
     res.status(500).json(err);
   }
 };
+
+export const loginGoogle = async (req, res) =>{
+  const client = new OAuth2Client(process.env.CLIENT_ID);
+  try{
+    const tokenGoogle = req.body.credential;
+    const clientId = req.body.clientId
+    console.log(tokenGoogle);
+    const ticket = await client.verifyIdToken({
+      idToken: tokenGoogle,
+      audience: clientId,
+    });
+    const payload = ticket.getPayload();
+    const email = payload.email;
+    const user = await UserModel.findOne({ email: email });
+    if (!user){
+      const newUser = new UserModel({
+        email: email,
+        });
+      const user = await newUser.save();
+    }
+    const token = jwt.sign(
+      { email: user.email, id: user._id },
+      process.env.JWTKEY,
+      { expiresIn: "1h" }
+    );
+    res.status(200).json({ user, token });
+  }
+  catch(err){
+    res.status(500).json({ message: err.message });
+  }
+}

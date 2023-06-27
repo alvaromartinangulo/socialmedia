@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./Auth.css";
-import { logIn, signUp } from "../../actions/authActions.js";
+import { logIn, signUp, logInGoogle } from "../../actions/authActions.js";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
+import { GoogleLogin } from '@react-oauth/google';
+
 
 const Auth = () => {
   const initialState = {
@@ -11,6 +13,7 @@ const Auth = () => {
     password: "",
     confirmpass: "",
   };
+
   const loading = useSelector((state) => state.authReducer.loading);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,6 +23,11 @@ const Auth = () => {
   const [data, setData] = useState(initialState);
 
   const [confirmPass, setConfirmPass] = useState(true);
+
+  //Login google
+  const googleLogin = (response) => {
+    dispatch(logInGoogle(response, navigate))
+  };
 
   // Reset Form
   const resetForm = () => {
@@ -47,27 +55,38 @@ const Auth = () => {
 
   return (
     <>
-    <nav><a><span className="logo">S</span></a>
-    </nav>
     <div className="Auth">
-      {/* left side */}
-      
-      <div className="a-left">
-
+      <div className="wrapper">
         <div>
-          <h1>STILLO.</h1>
-          <h3>Shopping made easy</h3>
+          <span className="logo">S</span>
+          <h3>Welcome to</h3> 
+            <h3>STILLO.</h3>
         </div>
-      </div>
+        <div className="spacer"></div>
+        <div>
+        <GoogleLogin
+            onSuccess={credentialResponse => {
+              googleLogin(credentialResponse);
+            }}
+            theme="filled_black"
+            text="continue_with"
+            shape="circle"
+            onError={() => {
+              console.log('Login Failed');
+            }}
+          
+          />
+          </div>
 
-      {/* right form side */}
-
-      <div className="a-right">
-        <form className="infoForm authForm" onSubmit={handleSubmit}>
-          <h2>{isSignUp ? "Sign Up" : "Log in"}</h2>
-          <div style={{display: isSignUp ? "flex" : "none"}}>
+          <div className="spacer"></div>
+          <h4>OR</h4>
+          <div className="spacer"></div>
+        <form onSubmit={handleSubmit}>
+          <h3>{isSignUp ? "Sign Up" : "Log in"}</h3>
+          
+          <div style={{display: isSignUp ? "" : "none"}}>
           {isSignUp && (<input
-              required
+              
               type="text"
               placeholder="Username"
               className="infoInput"
@@ -78,7 +97,7 @@ const Auth = () => {
           </div>
           <div>
             <input
-              required
+              
               type="text"
               placeholder="Email"
               className="infoInput"
@@ -89,7 +108,7 @@ const Auth = () => {
           </div>
           <div>
             <input
-              required
+              
               type="password"
               className="infoInput"
               placeholder="Password"
@@ -98,10 +117,10 @@ const Auth = () => {
               onChange={handleChange}
             />
           </div>
-          <div style={{display: isSignUp ? "flex" : "none"}}>
+          <div style={{display: isSignUp ? "" : "none"}}>
             {isSignUp && (
               <input
-                required
+                
                 type="password"
                 className="infoInput"
                 name="confirmpass"
@@ -121,7 +140,7 @@ const Auth = () => {
           >
             *Confirm password is not same
           </span>
-          <div>
+          <div className="isSignUp">
             {isSignUp
                 ? "Already have an account? "
                 : "Don't have an account? " }
@@ -135,19 +154,23 @@ const Auth = () => {
                 setIsSignUp((prev) => !prev);
               }}
             >
+              
               {isSignUp ? "Log in" : "Sign up"}
             </span>
+          </div>
+          <div>
             <button
-              className="button infoButton"
+              className="button authButton"
               type="Submit"
               disabled={loading}
             >
               {loading ? "Loading..." : isSignUp ? "Sign Up" : "Log in"}
             </button>
           </div>
+          
         </form>
+        </div>
       </div>
-    </div>
     </>
   );
 };
