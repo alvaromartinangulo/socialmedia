@@ -5,20 +5,22 @@ import { useSelector } from "react-redux";
 
 const Post = ({ data }) => {
   const { user } = useSelector((state) => state.authReducer.authData);
- /*  const [liked, setLiked] = useState(data.likes.includes(user._id));
+  /* const [liked, setLiked] = useState(data.likes.includes(user._id));
   const [likes, setLikes] = useState(data.likes.length)
-
+ */
   
-  const handleLike = () => {
+  console.log(data);
+/*   const handleLike = () => {
     likePost(data._id, user._id);
     setLiked((prev) => !prev);
     liked? setLikes((prev)=>prev-1): setLikes((prev)=>prev+1)
   }; */
   return (
     <div className="Post">
+      <h1></h1>
       <img
-        src={data.thumbnail ? data.thumbnail : "NO PIC"}
-        alt=""
+        src={data.thumbnail}
+        alt="NOPE"
       />
 
       <div className="postReact">

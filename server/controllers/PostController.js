@@ -42,7 +42,7 @@ export const getTimelinePosts = async (req, res) => {
       { 
         $match: {
           _id: new mongoose.Types.ObjectId(userId),
-        },
+        }
       },
       {
         $lookup: {
@@ -50,21 +50,18 @@ export const getTimelinePosts = async (req, res) => {
           localField: "following",
           foreignField: "source",
           as: "followingPosts",
-        },
+        }
       },
       {
         $project: {
           followingPosts: 1,
-          _id: 0,
-        },
+          _id: 0
+        }
       },
     ]);
 
     res.status(200).json(
-      ...followingPosts[0].followingPosts
-        .sort((a, b) => {
-          return new Date(b.createdAt) - new Date(a.createdAt);
-        })
+     followingPosts[0].followingPosts
     );
   } catch (error) {
     res.status(500).json(error);
