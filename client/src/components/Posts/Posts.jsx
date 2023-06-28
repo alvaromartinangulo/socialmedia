@@ -18,7 +18,7 @@ const Posts = () => {
   return (
     <div className="Posts">
       {loading
-        ? "Fetching posts...."
+        ? <span style={{display: loading ? "flex" : "none"}}>Fetching posts....</span>
         : posts.map((post, id) => {
             return <Post data={post} key={id} />;
           })}

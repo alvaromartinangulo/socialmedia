@@ -17,7 +17,6 @@ const Post = ({ data }) => {
   }; */
   return (
     <div className="Post">
-      <h1></h1>
       <img
         src={data.thumbnail}
         alt="NOPE"
@@ -32,13 +31,13 @@ const Post = ({ data }) => {
         />
         <img src={Comment} alt="" />
         <img src={Share} alt="" /> */}
-      </div>
-      <div className="detail">
-        <span>
-          <b>{data.title} </b>
-        </span>
-        <span>{data.price}</span>
-        <span>{data.product_link}</span>
+        <div className="left">
+          <span><b>{data.price}</b></span>
+          <div>
+            <b>{data.title} </b>
+          </div>
+        </div>
+        <div className="right"></div>
       </div>
     </div>
   );
