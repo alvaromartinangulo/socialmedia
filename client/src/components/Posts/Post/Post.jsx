@@ -17,29 +17,24 @@ const Post = ({ data }) => {
   }; */
   return (
     <div className="Post">
-      <img
-        src={data.thumbnail}
+    <img
+        src={data['Image URL']}
         alt="NOPE"
       />
-
+      </div>
+  /*   <div className="Post">
       <div className="postReact">
-        {/* <img
-          src={liked ? Heart : NotLike}
-          alt=""
-          style={{ cursor: "pointer" }}
-          onClick={handleLike}
-        />
-        <img src={Comment} alt="" />
-        <img src={Share} alt="" /> */}
         <div className="left">
-          <span><b>{data.price}</b></span>
+          <h2>{data.price}</h2>
           <div>
-            <b>{data.title} </b>
+            <h3>{data.title} </h3>
           </div>
         </div>
-        <div className="right"></div>
+        <div className="right">
+          <h4>{data.source}</h4>
+        </div>
       </div>
-    </div>
+    </div> */
   );
 };
 

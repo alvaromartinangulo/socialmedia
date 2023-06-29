@@ -8,8 +8,8 @@
     --palette-light-light-grey:#bec2c5;
     color: var(--palette-yellow);
     background-color: var(--palette-grey);
-    margin: 1rem 1rem;
-
+    height:100vh;
+    top: 0;
   }
 
 h1{
@@ -114,6 +114,8 @@ h6{
   margin-right: 5px;
   text-align: center;
   width: 3.5rem;
+  z-index: 1;
+  
 }
 nav{
   display: flex;
