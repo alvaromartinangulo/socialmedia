@@ -20,14 +20,14 @@
 
 }
 .profilepic{
-    width:2rem;
+    width:3rem;
 }
 .nav-body{
     display: flex;
     flex-direction: column;
     width:70%;
     height: 100%;
-    padding: 0 0 0 0;
+    padding: 3% 0 0 0;
 }
 .nav-links{
     flex:20%;
@@ -50,12 +50,15 @@
     justify-content: right;
 }
 .search{
-    flex: 10%;
+    flex: 5%;
     display:flex;
     align-items: center;
     justify-content: center;
     background-color: var(--palette-light-grey);
-    width: 100%
+    width: 100%;
+    border-radius: 15px;
+    height: 1%;
+    margin:1% 0 5% 0;
 }
 .Navbar ul{
     list-style-type: none;
