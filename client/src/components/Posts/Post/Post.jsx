@@ -16,25 +16,28 @@ const Post = ({ data }) => {
     liked? setLikes((prev)=>prev-1): setLikes((prev)=>prev+1)
   }; */
   return (
-    <div className="Post">
+  <div className="Post">
     <img
         src={data['Image URL']}
         alt="NOPE"
       />
+    <div className="overlay">
+    <div className="left">
+      <div>
+          <h3>{data['Name']} </h3>
       </div>
-  /*   <div className="Post">
-      <div className="postReact">
-        <div className="left">
-          <h2>{data.price}</h2>
-          <div>
-            <h3>{data.title} </h3>
-          </div>
-        </div>
-        <div className="right">
-          <h4>{data.source}</h4>
-        </div>
-      </div>
-    </div> */
+      <h2>{"$" + data['Price'] + ".00"}</h2>
+    </div>
+    <div className="right">
+      <h4>{data['Brand']}</h4>
+      <a className="button" href={data['URL']} target="_blank" rel="noreferrer">Shop</a>
+    </div>
+
+    </div>
+
+    
+  </div>
+    
   );
 };
 

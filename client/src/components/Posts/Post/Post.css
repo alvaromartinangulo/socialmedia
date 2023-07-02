@@ -1,49 +1,97 @@
 .Post
 {
-    display: flex;
-    flex-direction: column;
     /* padding:5% 5% 8% 5%; */
     /* border-radius: 1rem; */
-    gap:0.2rem;
     width:98%;
-    background-color: var(--palette-light-grey);
     break-inside: avoid;
     page-break-inside: avoid;
     margin: 0% 0% 15% 0;
+    position:relative;
 }
 
 .Post>img{
     max-width: 100%;
-    align-items: center;
     border-radius: 0.5rem;
+    z-index:2;
+    display: block;
 }
 
-.postReact{
-    display: flex;
+.overlay{
+    position: absolute; 
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--palette-light-grey);
+    visibility: hidden;
+    opacity: 0;
+    /* transition effect. not necessary */
+    transition: opacity .2s, visibility .2s;
 }
+.Post:hover .left,.right{
+    opacity: 100%;
+}
+.Post:hover .overlay{
+    visibility: visible;
+    opacity: 70%;
+}
+
 .left{
-    flex: 50%;
+    width:50%;
+    top:0;
+    bottom:0;
+    left:0;
+    height:90%;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 5% 5%;
+    word-wrap: break-word;
 }
 .right{
-    flex: 40%;
+    width:30%;
+    top:0;
+    right:0;
+    bottom:0;
+    height: 90%;
+    position:absolute;
     display: flex;
-    flex-direction:column-reverse;
+    flex-direction: column-reverse;
+    padding: 5% 5%;
+    word-wrap: break-word;
 }
 .Post h3{
     font-size: 70%;
     line-height: 100%;
     margin: 0 0;
     font-weight: 500;
+    z-index: -1;
+    position:relative;
 
 }
 .Post h2{
     font-weight: 600;
     font-size: 120%;
     margin: 13% 0 8%;
+    z-index: -1;
+    position:relative;
+
+
 }
 .Post h4{
     font-size: 40%;
     margin: 0 10% 0 0;
     align-self: flex-end;
     text-align: right;
+    z-index: -1;
+    position:relative;
+}
+.Post .button{
+    background-color: var(--palette-red);
+    margin: 5% 0% 10% 0%;
+    padding: 2% 0% 2% 0%;
+}
+.Post .button:hover{
+    border-color: var(--palette-red);
+    background-color: transparent;
+    color:var(--palette-red);
 }
