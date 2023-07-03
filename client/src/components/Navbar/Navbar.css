@@ -16,7 +16,6 @@
     font-size: 1.5rem;
     line-height: 2rem;
     width: 2rem;
-    margin: 0 5% 0 0;
 
 }
 .profilepic{
@@ -37,10 +36,11 @@
     padding-inline-start: 0;
 }
 .left-nav{
-    flex: 80%;
+    flex: 10%;
     margin: 0 0 0 0;
     align-items: center;
     display: flex;
+    justify-content: space-between;
 }
 .right-nav{
     flex:20%;
@@ -65,10 +65,49 @@
     margin: 0 0 0 0;
 }
 .Navbar li{
-    float:left;
-    margin: 0 5% 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.inactive{
+    text-decoration: none;
+    color:var(--palette-yellow);
+    position:relative;
+    padding: 10%;
+    border-radius: 10px;
 }
 .Navbar li a{
-    display: block;
-    text-align: center;
+    display:inline-block;
+    text-decoration: none;
+    padding: 0 0 0 0;
+}
+.inactive:after{
+    content: '';
+    position: absolute;
+    width: 90%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left:5%;
+    background-color: var(--palette-red);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+    text-decoration: none;
+    }
+  
+.inactive:hover:after{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+.active{
+    position:relative;
+    padding: 10%;
+    text-decoration: none;
+    background-color: var(--palette-red);
+    border-radius: 10px;
+    color:var(--palette-yellow);
+    transition: all 100ms ease-out;
+
 }

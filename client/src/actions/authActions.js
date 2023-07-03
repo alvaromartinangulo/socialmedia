@@ -4,7 +4,7 @@ export const logIn = (formData, navigate) => async (dispatch) => {
   try {
     const { data } = await AuthApi.logIn(formData);
     dispatch({ type: "AUTH_SUCCESS", data: data });
-    navigate("../home", { replace: true });
+    navigate("../following", { replace: true });
   } catch (error) {
     console.log(error);
     dispatch({ type: "AUTH_FAIL" });
@@ -16,7 +16,7 @@ export const signUp = (formData, navigate) => async (dispatch) => {
   try {
     const { data } = await AuthApi.signUp(formData);
     dispatch({ type: "AUTH_SUCCESS", data: data });
-    navigate("../home", { replace: true });
+    navigate("../following", { replace: true });
   } catch (error) {
     console.log(error);
     dispatch({ type: "AUTH_FAIL" });
@@ -28,7 +28,7 @@ export const logInGoogle = (credential, navigate) => async (dispatch) =>{
   try {
     const { data } = await AuthApi.logInGoogle(credential);
     dispatch({ type: "AUTH_SUCCESS", data: data });
-    navigate("../home", { replace: true });
+    navigate("../following", { replace: true });
   } catch (error) {
     console.log(error);
     dispatch({ type: "AUTH_FAIL" });

@@ -1,12 +1,12 @@
 import React from "react";
 import Posts from "../Posts/Posts"
-import "./Home.css"
-const Home = () =>{
+import "./Following.css"
+const Following = () =>{
     return (
-        <div className="Home">
+        <div className="Following">
             <Posts/>
         </div>
     )
 }
 
-export default Home;
+export default Following;

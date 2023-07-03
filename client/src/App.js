@@ -1,10 +1,12 @@
 import "./App.css";
 import { Routes, Route, Outlet } from "react-router-dom";
 import Auth from "./components/Auth/Auth";
-import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import Landing from "./components/Landing/Landing";
 import { useSelector } from "react-redux";
+import Following from "./components/Following/Following";
+import ForYou from "./components/ForYou/ForYou";
+import Saved from "./components/Saved/Saved";
 
 function App() {
   const user = useSelector((state) => state.authReducer.authData);
@@ -24,8 +26,16 @@ function App() {
         />
         <Route path="/" element={<LayoutsWithNavbar />}>
           <Route
-            path="/home"
-            element={<Home />}
+            path="/following"
+            element={<Following />}
+          />
+          <Route
+            path="/foryou"
+            element={<ForYou />}
+          />
+          <Route
+            path="/saved"
+            element={<Saved />}
           />
         </Route>{/* 
         <Route

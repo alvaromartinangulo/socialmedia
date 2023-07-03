@@ -28,7 +28,7 @@
     /* transition effect. not necessary */
     transition: opacity .2s, visibility .2s;
 }
-.Post:hover .left,.right{
+.Post:hover .left{
     opacity: 100%;
 }
 .Post:hover .overlay{
