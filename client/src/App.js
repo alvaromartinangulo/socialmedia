@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import Following from "./components/Following/Following";
 import ForYou from "./components/ForYou/ForYou";
 import Saved from "./components/Saved/Saved";
+import PostExpanded from "./components/Posts/Post/PostExpanded"
 
 function App() {
   const user = useSelector((state) => state.authReducer.authData);
@@ -36,6 +37,10 @@ function App() {
           <Route
             path="/saved"
             element={<Saved />}
+          />
+          <Route
+            path="/posts/:id"
+            element={<PostExpanded />}
           />
         </Route>{/* 
         <Route

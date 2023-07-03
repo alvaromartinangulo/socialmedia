@@ -27,6 +27,8 @@
     opacity: 0;
     /* transition effect. not necessary */
     transition: opacity .2s, visibility .2s;
+    border-radius: 0.5rem;
+
 }
 .Post:hover .left{
     opacity: 100%;

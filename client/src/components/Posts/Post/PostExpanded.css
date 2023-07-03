@@ -1,0 +1,42 @@
+.PostExpanded{
+    overflow: hidden;
+    width: 100%;
+    height:80vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    top:20%;
+    flex-direction: column;
+}
+
+.bodyCenter{
+    display: flex;
+    flex-direction: row;
+    width:60%;
+}
+.bodyCenter .productPost{
+    flex: 40%;
+}
+.bodyCenter .productPost img{
+    width:100%;
+    border-radius: 0.5rem;
+}
+.bodyCenter .brandPost{
+    border-radius: 0.5rem;
+    background-color: var(--palette-light-grey);
+    flex: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.PostExpanded .button{
+    background-color: var(--palette-red);
+    padding: 2% 5% 2% 5%;
+    color: var(--palette-yellow)
+}
+.PostExpanded .button:hover{
+    border-color: var(--palette-red);
+    background-color: transparent;
+    color:var(--palette-red);
+}

@@ -2,17 +2,22 @@ import React, { useState } from "react";
 import "./Post.css";
 import { likePost } from "../../../api/PostRequests";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Post = ({ data }) => {
   const { user } = useSelector((state) => state.authReducer.authData);
   const [liked, setLiked] = useState(data['Likes'].includes(user._id));
-
+  const navigate = useNavigate()
   const handleLike = () => {
     likePost(data._id, user._id);
     setLiked((prev) => !prev);
   };
+  const handleGetPost = () =>{
+    navigate(`../posts/${data._id}`, {state: {data: data}})
+  }
   return (
-  <div className="Post">
+  <div className="Post"
+  onClick={handleGetPost}>
     <img
         src={data['Image URL']}
         alt="NOPE"
