@@ -95,3 +95,12 @@
     background-color: transparent;
     color:var(--palette-red);
 }
+
+.liked{
+    background-color: var(--palette-red);
+}
+.Post .logo{
+    margin-bottom: auto;
+    align-self: flex-end;
+    border: 5%;
+}

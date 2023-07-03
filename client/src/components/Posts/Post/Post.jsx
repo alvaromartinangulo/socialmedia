@@ -5,16 +5,12 @@ import { useSelector } from "react-redux";
 
 const Post = ({ data }) => {
   const { user } = useSelector((state) => state.authReducer.authData);
-  /* const [liked, setLiked] = useState(data.likes.includes(user._id));
-  const [likes, setLikes] = useState(data.likes.length)
- */
-  
-  console.log(data);
-/*   const handleLike = () => {
+  const [liked, setLiked] = useState(data['Likes'].includes(user._id));
+
+  const handleLike = () => {
     likePost(data._id, user._id);
     setLiked((prev) => !prev);
-    liked? setLikes((prev)=>prev-1): setLikes((prev)=>prev+1)
-  }; */
+  };
   return (
   <div className="Post">
     <img
@@ -29,8 +25,13 @@ const Post = ({ data }) => {
       <h2>{"$" + data['Price'] + ".00"}</h2>
     </div>
     <div className="right">
-      <h4>{data['Brand']}</h4>
+      <h4>{data['Display Name']}</h4>
       <a className="button" href={data['URL']} target="_blank" rel="noreferrer">Shop</a>
+      <span className="logo"
+          style={{backgroundColor: liked ?  "var(--palette-red)": "var(--palette-yellow)",
+        cursor: "pointer"}}
+          onClick={handleLike}
+        >S</span>
     </div>
 
     </div>
