@@ -20,12 +20,12 @@ const {userId}  = req.body;
 try {
     const post = await PostModel.findById(id);
     const user = await UserModel.findById(userId);
-    if (post['Likes'].includes(userId)) {
-    await post.updateOne({ $pull: { Likes: new mongoose.Types.ObjectId(userId) } });
+    if (post['likes'].includes(userId)) {
+    await post.updateOne({ $pull: { likes: new mongoose.Types.ObjectId(userId) } });
     await user.updateOne({ $pull: { likedPosts: new mongoose.Types.ObjectId(id) } })
     res.status(200).json("Post disliked");
     } else {
-    await post.updateOne({ $push: { Likes: new mongoose.Types.ObjectId(userId) } });
+    await post.updateOne({ $push: { likes: new mongoose.Types.ObjectId(userId) } });
     await user.updateOne({ $push: { likedPosts: new mongoose.Types.ObjectId(id) } })
     res.status(200).json("Post liked");
     }
@@ -48,7 +48,7 @@ export const getTimelinePosts = async (req, res) => {
         $lookup: {
           from: "posts",
           localField: "following",
-          foreignField: "Brand",
+          foreignField: "store_ID",
           as: "followingPosts",
         }
       },
@@ -59,6 +59,7 @@ export const getTimelinePosts = async (req, res) => {
         }
       },
     ]);
+    console.log(followingPosts[0].followingPosts)
 
     res.status(200).json(
      followingPosts[0].followingPosts
