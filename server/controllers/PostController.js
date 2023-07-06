@@ -59,8 +59,6 @@ export const getTimelinePosts = async (req, res) => {
         }
       },
     ]);
-    console.log(followingPosts[0].followingPosts)
-
     res.status(200).json(
      followingPosts[0].followingPosts
     );

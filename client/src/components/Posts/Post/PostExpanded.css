@@ -13,12 +13,13 @@
     display: flex;
     flex-direction: row;
     width:60%;
+    height:80%;
 }
 .bodyCenter .productPost{
     flex: 40%;
 }
 .bodyCenter .productPost img{
-    width:100%;
+    height:100%;
     border-radius: 0.5rem;
 }
 .bodyCenter .brandPost{
@@ -28,6 +29,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height:100%;
+    padding: 0 2%;
 }
 
 .PostExpanded .button{

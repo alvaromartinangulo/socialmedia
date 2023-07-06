@@ -6,16 +6,16 @@ import { useNavigate } from "react-router-dom";
 
 const Post = ({ data }) => {
   const { user } = useSelector((state) => state.authReducer.authData);
-  /* const [liked, setLiked] = useState(data['likes'].includes(user._id)); */
+  const [liked, setLiked] = useState(data.likes.includes(user._id));
   const navigate = useNavigate()
- /*  const handleLike = () => {
+  const handleLike = () => {
     likePost(data._id, user._id);
     setLiked((prev) => !prev);
-  }; */
+  };
   const handleGetPost = () =>{
     navigate(`../posts/${data._id}`, {state: {data: data}})
   }
-  return (
+  return ( data.images[0] ?
   <div className="Post"
   onClick={handleGetPost}>
     <img
@@ -32,11 +32,11 @@ const Post = ({ data }) => {
     <div className="right">
       <h4>{data.store_name}</h4>
       <a className="button" href={data.product_url} target="_blank" rel="noreferrer">Shop</a>
-      {/* <span className="logo"
+      <span className="logo"
           style={{backgroundColor: liked ?  "var(--palette-red)": "var(--palette-yellow)",
         cursor: "pointer"}}
           onClick={handleLike}
-        >S</span> */}
+        >S</span>
     </div>
 
     </div>
@@ -44,7 +44,7 @@ const Post = ({ data }) => {
     
   </div>
     
-  );
+  : "");
 };
 
 export default Post;

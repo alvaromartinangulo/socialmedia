@@ -2,6 +2,7 @@ import UserModel from "../models/UserModel.js";
 import BrandModel from "../models/BrandModel.js"
 import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken'
+import mongoose from "mongoose";
 
 // Get a user
 export const getUser = async (req, res) => {
@@ -57,34 +58,33 @@ export const deleteUser = async (req, res) => {
 // Follow a Brand
 export const followBrand = async (req, res) => {
 const id = req.params.id;
-const { _id } = req.body;
+const { userId } = req.body;
 try {
     const followBrand = await BrandModel.findById(id);
-    const followingUser = await UserModel.findById(_id);
+    const followingUser = await UserModel.findById(userId);
 
-    if (!followBrand.followers.includes(new mongoose.Types.ObjectId(_id))) {
-        await followBrand.updateOne({ $push: { followers: new mongoose.Types.ObjectId(_id) } });
+    if (!followBrand.followers.includes(new mongoose.Types.ObjectId(userId))) {
+        await followBrand.updateOne({ $push: { followers: new mongoose.Types.ObjectId(userId) } });
         await followingUser.updateOne({ $push: { following: new mongoose.Types.ObjectId(id) } });
-        res.status(200).json("User followed!");
+        res.status(200).json("Brand followed!");
     } else {
         res.status(403).json("you are already following this id");
     }
 } catch (error) {
-    console.log(error)
-    res.status(500).json(error);
+    res.status(500).json(userId);
 }
 };
 
 // Unfollow a Brand
 export const unfollowBrand = async (req, res) => {
     const id = req.params.id;
-    const { _id } = req.body;
+    const { userId } = req.body;
     try {
       const unFollowBrand = await BrandModel.findById(id)
-      const unFollowingUser = await UserModel.findById(_id)
-      if (unFollowBrand.followers.includes(new mongoose.Types.ObjectId(_id)))
+      const unFollowingUser = await UserModel.findById(userId)
+      if (unFollowBrand.followers.includes(new mongoose.Types.ObjectId(userId)))
       {
-        await unFollowBrand.updateOne({$pull : {followers: new mongoose.Types.ObjectId(_id)}})
+        await unFollowBrand.updateOne({$pull : {followers: new mongoose.Types.ObjectId(userId)}})
         await unFollowingUser.updateOne({$pull : {following: new mongoose.Types.ObjectId(id)}})
         res.status(200).json("Unfollowed Successfully!")
       }
@@ -92,6 +92,6 @@ export const unfollowBrand = async (req, res) => {
         res.status(403).json("You are not following this User")
       }
     } catch (error) {
-      res.status(500).json(error)
+      res.status(500).json(userId)
     }
   };

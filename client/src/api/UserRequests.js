@@ -12,5 +12,5 @@ API.interceptors.request.use((req) => {
 
 export const getUser = (userId) => API.get(`/user/${userId}`);
 export const getAllUsers = ()=> API.get('/user')
-export const followBrand = (id,data)=> API.put(`/user/${id}/follow`, data)
-export const unfollowBrand = (id, data)=> API.put(`/user/${id}/unfollow`, data)
+export const followBrand = (id,userId)=> API.put(`/user/${id}/follow`, {userId: userId})
+export const unfollowBrand = (id, userId)=> API.put(`/user/${id}/unfollow`, {userId: userId})

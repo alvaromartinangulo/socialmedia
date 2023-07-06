@@ -77,7 +77,6 @@ export const loginGoogle = async (req, res) =>{
   try{
     const tokenGoogle = req.body.credential;
     const clientId = req.body.clientId
-    console.log(tokenGoogle);
     const ticket = await client.verifyIdToken({
       idToken: tokenGoogle,
       audience: clientId,
