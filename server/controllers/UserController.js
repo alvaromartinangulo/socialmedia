@@ -1,7 +1,5 @@
 import UserModel from "../models/UserModel.js";
 import BrandModel from "../models/BrandModel.js"
-import bcrypt from "bcrypt";
-import jwt from 'jsonwebtoken'
 import mongoose from "mongoose";
 
 // Get a user

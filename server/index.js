@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 import PostRoute from './routes/PostRoute.js';
 import AuthRoute from './routes/AuthRoute.js';
 import UserRoute from './routes/UserRoute.js';
+import BrandRoute from './routes/BrandRoute.js';
 
 
 const app = express();
