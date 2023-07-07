@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 
 const brandSchema = mongoose.Schema({
     name: String,
-    displayName: String,
+    url: String,
     posts: [],
-    profilePic: String,
+    profile_picture: String,
     banner: String,
     followers: [],
 })

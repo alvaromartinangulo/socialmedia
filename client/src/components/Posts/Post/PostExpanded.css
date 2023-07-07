@@ -1,3 +1,46 @@
+@import "~react-image-gallery/styles/css/image-gallery.css";
+.image-gallery, .image-gallery-content, .image-gallery-slide-wrapper, .image-gallery-swipe, .image-gallery-slides, .image-gallery-slides>div{
+    height: 100%;
+}
+.image-gallery-left-nav .image-gallery-svg, .image-gallery-right-nav .image-gallery-svg {
+    height: 50px;
+    width: 30%;
+}
+.image-gallery-slide .image-gallery-image {
+    height:100%;
+    object-fit:cover;
+    width:100%;
+}
+.image-gallery-icon {
+    color: var(--palette-grey);
+    transition: all .3s ease-out;
+    appearance: none;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    position: absolute;
+    z-index: 4;
+    filter: none;
+}
+.image-gallery-bullets .image-gallery-bullet {
+    appearance: none;
+    background-color: var(--palette-grey);
+    border: 1px solid var(--palette-grey);
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 5px;
+    outline: none;
+    padding: 5px;
+    transition: all .2s ease-out;
+}
+.image-gallery-bullets .image-gallery-bullet.active {
+    transform: scale(1.2);
+    background: var(--palette-red);
+    border: 1px solid var(--palette-red);
+}
+
 .PostExpanded{
     overflow: hidden;
     width: 100%;
@@ -12,12 +55,16 @@
 .bodyCenter{
     display: flex;
     flex-direction: row;
-    width:60%;
+    width:70%;
     height:80%;
+    justify-content: space-between;
 }
 .bodyCenter .productPost{
-    flex: 40%;
+    width: 43%;
+    height:100%;
+
 }
+
 .bodyCenter .productPost img{
     height:100%;
     border-radius: 0.5rem;
@@ -25,12 +72,46 @@
 .bodyCenter .brandPost{
     border-radius: 0.5rem;
     background-color: var(--palette-light-grey);
-    flex: 40%;
+    width: 55%;
     display: flex;
     flex-direction: column;
     align-items: center;
     height:100%;
-    padding: 0 2%;
+    padding: 0;
+}
+.Slide{
+    width: 100%;
+}
+.bodyCenter .brandPost .banner{
+    width:100%;
+    height: 20%;
+}
+.bodyCenter .brandPost .banner img{
+    border-radius: 0.5rem 0.5rem 0 0;
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+.bodyCenter .brandPost .brandLogo{
+    border-radius: 50%;
+    width: 5%;
+    position: absolute;
+    top:10%;
+
+}
+.bodyCenter .brandPost .brandLogo img{
+    border-radius: 50%;
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    border: 3px solid var(--palette-yellow);
+}
+.bodyCenter .brandPost .brandPostBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height:100%;
+    padding: 10% 3% 3% 3%;
 }
 
 .PostExpanded .button{

@@ -26,3 +26,4 @@ mongoose.connect(process.env.MONGOURI, { useNewUrlParser: true, useUnifiedTopolo
 app.use('/posts', PostRoute);
 app.use('/auth', AuthRoute);
 app.use('/user', UserRoute);
+app.use('/brands', BrandRoute);

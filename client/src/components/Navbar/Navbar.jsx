@@ -24,10 +24,6 @@ const Navbar = () =>{
                     </span>
                     <span className="right-nav"><img className = "profilepic" src={profilepic}></img></span>
                 </ul>
-                
-                <div className="search">
-                    
-                </div>
             </nav>
         </div>
     )
