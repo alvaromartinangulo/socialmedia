@@ -7,8 +7,9 @@ import { useNavigate } from "react-router-dom";
 const Post = ({ data }) => {
   const { user } = useSelector((state) => state.authReducer.authData);
   const [liked, setLiked] = useState(data.likes.includes(user._id));
-  const navigate = useNavigate()
-  const handleLike = () => {
+  const navigate = useNavigate();
+  function handleLike(event){
+    event.stopPropagation();
     likePost(data._id, user._id);
     setLiked((prev) => !prev);
   };
