@@ -13,6 +13,9 @@ const Post = ({ data }) => {
     likePost(data._id, user._id);
     setLiked((prev) => !prev);
   };
+  function handleShop(event){
+    event.stopPropagation();
+  }
   const handleGetPost = () =>{
     navigate(`../posts/${data._id}`, {state: {data: data}})
   }
@@ -32,7 +35,7 @@ const Post = ({ data }) => {
     </div>
     <div className="right">
       <h4>{data.store_name}</h4>
-      <a className="button" href={data.product_url} target="_blank" rel="noreferrer">Shop</a>
+      <a className="button" href={data.product_url} target="_blank" rel="noreferrer" onClick={handleShop}>Shop</a>
       <span className="logo"
           style={{backgroundColor: liked ?  "var(--palette-red)": "var(--palette-yellow)",
         cursor: "pointer"}}

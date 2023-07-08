@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./PostExpanded.css"
 import { followBrand, unfollowBrand } from "../../../actions/UserActions";
@@ -9,6 +9,7 @@ import ImageGallery from 'react-image-gallery';
 const PostExpanded = () => {
     const {state} = useLocation();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const {data} = state;
     const { user } = useSelector((state) => state.authReducer.authData);
     const [followed, setFollowed] = useState(user.following.includes(data.store_ID));
@@ -28,16 +29,20 @@ const PostExpanded = () => {
         getBrandData();
       }, [data.store_ID, brand, setBrand])
 
-    const handlefollow = (e) => {
-        e.preventDefault();
+    const handlefollow = () => {
         if (followed === true){
-            dispatch(unfollowBrand(data.store_ID, user._id));
+            dispatch(unfollowBrand(brand._id, user._id));
+            console.log("unfollowed")
         }
         else{
-            dispatch(followBrand(data.store_ID, user._id));
+            dispatch(followBrand(brand._id, user._id));
+            console.log("followed")
         }
         setFollowed((prev) => !prev)
       };
+    const handleGetBrand = () =>{
+    navigate(`../brands/${brand._id}/posts`)
+    }
     return(
         <div className="PostExpanded">
             {brand === null ? "loading" : 
@@ -61,11 +66,12 @@ const PostExpanded = () => {
                         <img src={brand.banner}/>
                     </div>
                     <div className="brandLogo">
-                        <img src={brand.profile_picture}/>
+                        <img style={{cursor:"pointer"}} src={brand.profile_picture} />
                     </div>
                     <div className="brandPostBody">
-                    <h3>{data.store_name}</h3>
-                    <button className="button" onClick={handlefollow}>{followed? "Unfollow": "Follow"}</button>
+                    <h3 style={{cursor:"pointer"}}>{data.store_name}</h3>
+                    <button className={followed?"button buttonUnfollow": "button buttonFollow"}
+                    onClick={handlefollow}>{followed? "Unfollow": "Follow"}</button>
                     <h4>{data.name}</h4>
                     <h3>{data.price}</h3>
                     <h4>{data.description.replace( /(<([^>]+)>)/ig, '')}</h4>

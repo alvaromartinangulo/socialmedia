@@ -8,6 +8,7 @@ import Following from "./components/Following/Following";
 import ForYou from "./components/ForYou/ForYou";
 import Saved from "./components/Saved/Saved";
 import PostExpanded from "./components/Posts/Post/PostExpanded"
+import Brand from "./components/Brand/Brand";
 
 function App() {
   const user = useSelector((state) => state.authReducer.authData);
@@ -23,25 +24,29 @@ function App() {
         />
         <Route
           path="/auth"
-          element={<Auth />}
+          element={<Auth/>}
         />
-        <Route path="/" element={<LayoutsWithNavbar />}>
+        <Route path="/" element={<LayoutsWithNavbar/>}>
           <Route
             path="/following"
-            element={<Following />}
+            element={<Following/>}
           />
           <Route
             path="/foryou"
-            element={<ForYou />}
+            element={<ForYou/>}
           />
           <Route
             path="/saved"
-            element={<Saved />}
+            element={<Saved/>}
           />
           <Route
             path="/posts/:id"
-            element={<PostExpanded />}
+            element={<PostExpanded/>}
           />
+          {<Route
+            path="/brands/:id/posts"
+            element={<Brand/>}
+          />}
         </Route>{/* 
         <Route
           path="/profile/:id"
