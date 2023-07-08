@@ -44,7 +44,7 @@ function App() {
             element={<PostExpanded/>}
           />
           {<Route
-            path="/brands/:id/posts"
+            path="/brands/:id"
             element={<Brand/>}
           />}
         </Route>{/* 

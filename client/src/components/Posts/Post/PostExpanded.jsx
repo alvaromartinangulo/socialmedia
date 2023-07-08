@@ -41,7 +41,7 @@ const PostExpanded = () => {
         setFollowed((prev) => !prev)
       };
     const handleGetBrand = () =>{
-    navigate(`../brands/${brand._id}/posts`)
+    navigate(`../brands/${brand._id}`)
     }
     return(
         <div className="PostExpanded">
@@ -66,10 +66,10 @@ const PostExpanded = () => {
                         <img src={brand.banner}/>
                     </div>
                     <div className="brandLogo">
-                        <img style={{cursor:"pointer"}} src={brand.profile_picture} />
+                        <img style={{cursor:"pointer"}} onClick={handleGetBrand} src={brand.profile_picture} />
                     </div>
                     <div className="brandPostBody">
-                    <h3 style={{cursor:"pointer"}}>{data.store_name}</h3>
+                    <h3 style={{cursor:"pointer"}} onClick={handleGetBrand}>{data.store_name}</h3>
                     <button className={followed?"button buttonUnfollow": "button buttonFollow"}
                     onClick={handlefollow}>{followed? "Unfollow": "Follow"}</button>
                     <h4>{data.name}</h4>
