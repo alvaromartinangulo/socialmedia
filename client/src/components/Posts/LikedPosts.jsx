@@ -18,7 +18,7 @@ const LikedPosts = () => {
   return (
     <div className="LikedPosts">
       {loading
-        ? console.log("loading posts")
+        ? "Loading"
         : posts.map((post, id) => {
             return <Post data={post} key={id} />;
           })}

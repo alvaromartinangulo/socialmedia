@@ -116,13 +116,11 @@
     width: 5%;
     position: absolute;
     top:10%;
-
 }
 .bodyCenter .brandPost .brandLogo img{
     border-radius: 50%;
     width:100%;
     height: 100%;
-    object-fit: cover;
     border: 3px solid var(--palette-yellow);
 }
 .bodyCenter .brandPost .brandPostBody{
@@ -153,13 +151,13 @@
     background-color: transparent;
     color:var(--palette-yellow);
 }
-.PostExpanded .button.buttonUnfollow{
+.button.buttonUnfollow{
     background-color: var(--palette-light-grey);
     padding: 1% 2% 1% 2%;
     color: var(--palette-light-light-grey);
     border-color: var(--palette-light-light-grey);
 }
-.PostExpanded .button.buttonUnfollow:hover{
+.button.buttonUnfollow:hover{
     background-color: var(--palette-light-light-grey);
     color:var(--palette-light-grey);
 }

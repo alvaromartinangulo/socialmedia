@@ -18,7 +18,7 @@ const Posts = () => {
   return (
     <div className="Posts">
       {loading
-        ? console.log("loading posts")
+        ? "Loading"
         : posts.map((post, id) => {
             return <Post data={post} key={id} />;
           })}
