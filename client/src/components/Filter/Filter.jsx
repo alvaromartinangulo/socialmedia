@@ -68,7 +68,7 @@ const Filter = () => {
             );
           })}
         </ul>
-    </div>
+        </div>
   );
 };
 

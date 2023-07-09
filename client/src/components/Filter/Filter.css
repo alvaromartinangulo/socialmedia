@@ -22,9 +22,11 @@
     list-style-type: none;
     margin: 0 0 0 0;
     display: flex;
-    width: 100%;
+    width: 80%;
     justify-content: space-evenly;
-    padding:0;
+    padding:1%;
+    border: 1.5px solid var(--palette-light-grey);
+    border-radius: 1rem;
 }
 .Filter li{
     display: flex;
