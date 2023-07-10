@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Navbar.css"
 import profilepic from "../Images/Profile-PNG-File.png"
 import { NavLink } from "react-router-dom";
+import Vector from "../Images/Vector.svg"
+import { useSelector } from "react-redux";
 const Navbar = () =>{
+    const { user } = useSelector((state) => state.authReducer.authData);
+    useEffect(() =>{
+        console.log(user)
+    })
     return(
         <div className="Navbar">
             <nav className="nav-body">
                 <ul className="nav-links">
-                    <span className="left-nav">
                     <li><span className="logo">S</span></li>
                     <li><NavLink to="/foryou">
                     {({ isActive, isPending }) => (
@@ -17,12 +22,13 @@ const Navbar = () =>{
                     {({ isActive, isPending }) => (
                     <span className={isActive ? "active" : "inactive"}>Following</span>
                     )}</NavLink></li>
-                    <li><NavLink to="/saved">
-                    {({ isActive, isPending }) => (
-                    <span className={isActive ? "active" : "inactive"}>Saved</span>
-                    )}</NavLink></li>
-                    </span>
-                    <span className="right-nav"><img className = "profilepic" src={profilepic}></img></span>
+                    <div className="searchBar"><input
+                    type="text"
+                    placeholder=""
+                    />
+                    <img src={Vector}/>
+                    </div>
+                    <img className = "profilepic" src={user.profile_picture? user.profile_picture : profilepic}></img>
                 </ul>
             </nav>
         </div>

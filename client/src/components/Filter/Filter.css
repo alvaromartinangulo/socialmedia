@@ -9,24 +9,29 @@
 .Filter .selected{
     background-color: var(--palette-red);
     color:var(--palette-yellow);
-    border-radius: 0.5rem;
+    border-radius: 0.8rem;
 }
 
 .Filter .not-selected{
     background-color: transparent;
     color:var(--palette-yellow);
-    border-radius: 0.5rem;
+    border-radius: 0.8rem;
 }
-
+.Filter .button{
+    border: 1px solid transparent;
+}
+.Filter .button:hover{
+    border: 1px solid var(--palette-yellow);
+}
 .Filter ul{
     list-style-type: none;
     margin: 0 0 0 0;
     display: flex;
     width: 80%;
     justify-content: space-evenly;
-    padding:1%;
-    border: 1.5px solid var(--palette-light-grey);
-    border-radius: 1rem;
+    padding:1.5%;
+    border: 1px solid var(--palette-yellow);
+    border-radius: 12px;
 }
 .Filter li{
     display: flex;

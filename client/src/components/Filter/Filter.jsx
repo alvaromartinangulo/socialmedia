@@ -15,7 +15,19 @@ const filterParams = [
 ];
 export const categoriesMap = new Map([
   ["hoodie", "Sweatshirts"],
-  ["crewneck", "Sweatshirts"]
+  ["crewneck", "Sweatshirts"],
+  ["swimwear", "Accessories"],
+  ["t-shirt", "T-Shirts & Polos"],
+  ["jewelry", "Accessories"],
+  ["headwear", "Headwear"],
+  ["hoodie", "Sweatshirts"],
+  ["accessories", "Accessories"],
+  ["bottoms", "Bottoms"],
+  ["shirts & polo", "T-shirts & Polos"],
+  ["objects", "Accessories"],
+  ["knitwear", "Sweatshirts"],
+  ["pantalones", "Bottoms"],
+  ["accesorios para la cabeza", "Headwear"],
 ])
 
 const Filter = ({currentFilter}) => {

@@ -5,6 +5,7 @@ import BrandPosts from "../Posts/BrandPosts/BrandPosts";
 import "./Brand.css"
 import { useDispatch, useSelector } from "react-redux";
 import { followBrand, unfollowBrand } from "../../actions/UserActions";
+import Filter from "../Filter/Filter";
 const Brand = () =>{
     const {id} = useParams();
     const [brand, setBrand] = useState(null);
@@ -12,6 +13,14 @@ const Brand = () =>{
     const { user } = useSelector((state) => state.authReducer.authData);
     const dispatch = useDispatch();
     const [followed, setFollowed] = useState(false);
+    const [followingFilterParams, setFollowingFilterParams] = useState(new Set(["All Categories"]))
+
+    const currentFilter = filterParams =>{
+        const newFilterParams = new Set(filterParams)
+        setFollowingFilterParams(newFilterParams)
+        appliedFilter()
+    }
+    const appliedFilter = () =>{}
 
     useEffect(()=> {
         const getBrandData = async () => {
@@ -58,8 +67,8 @@ const Brand = () =>{
                     onClick={handlefollow}>{followed? "Following": "Follow"}</button>
         </div>
       </div>}
-        
-        <BrandPosts id={id}/>
+        <Filter currentFilter={currentFilter}/>
+        <BrandPosts appliedFilter={followingFilterParams} id={id}/>
       </div>
     )
 }

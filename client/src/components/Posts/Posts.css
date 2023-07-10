@@ -1,8 +1,9 @@
 .Posts
 {
-    width: 80vw;
+    width: 90vw;
     column-count: 6;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    margin: 3% 0 0 0;
 }

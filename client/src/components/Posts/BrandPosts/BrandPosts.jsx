@@ -3,7 +3,8 @@ import Post from "../Post/Post";
 import * as BrandApi from "../../../api/BrandRequests"
 import { useState } from "react";
 import "./BrandPosts.css"
-const BrandPosts = ({id}) => {
+import { categoriesMap } from "../../Filter/Filter";
+const BrandPosts = ({appliedFilter, id}) => {
   const [posts, setPosts] = useState(null)
   useEffect(()=> {
     const getBrandPosts = async () => {
@@ -22,8 +23,10 @@ const BrandPosts = ({id}) => {
     <div className="BrandPosts">
       {posts === null? "loading":
         posts.map((post, id) => {
+            if(appliedFilter.has("All Categories") || appliedFilter.has(categoriesMap.get(post.product_type.toLowerCase()))){
               return <Post data={post} key={id} />;
-            })}
+            } 
+          })}
     </div>
   );
 };
