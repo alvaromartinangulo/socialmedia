@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Filter.css";
 
 const filterParams = [
@@ -13,17 +13,22 @@ const filterParams = [
   "Bags",
   "Accessories"
 ];
+export const categoriesMap = new Map([
+  ["hoodie", "Sweatshirts"],
+  ["crewneck", "Sweatshirts"]
+])
 
-const Filter = () => {
+const Filter = ({currentFilter}) => {
   const [selectedFilters, setSelectedFilters] = useState(new Set(["All Categories"]));
   const [isAllSelected, setIsAllSelected] = useState(true);
-
   const handleSelect = (filterParam) => {
     switch (filterParam) {
       case "All Categories":
         if (!isAllSelected) {
+          const updatedFilters = new Set(["All Categories"]);
           setIsAllSelected(true);
-          setSelectedFilters(new Set(["All Categories"]));
+          setSelectedFilters(updatedFilters);
+          currentFilter(updatedFilters)
         }
         break; // Add a break statement here
 
@@ -31,23 +36,26 @@ const Filter = () => {
         if (selectedFilters.has(filterParam)) {
           const updatedFilters = new Set(selectedFilters);
           updatedFilters.delete(filterParam);
-          setSelectedFilters(updatedFilters);
-
           if (updatedFilters.size === 0) {
             setIsAllSelected(true);
-            setSelectedFilters(new Set(["All Categories"]));
+            updatedFilters.add("All Categories")
           }
+          setSelectedFilters(updatedFilters);
+          currentFilter(updatedFilters)
+
         } else {
           const updatedFilters = new Set(selectedFilters);
           updatedFilters.add(filterParam);
-          setSelectedFilters(updatedFilters);
 
           if (isAllSelected) {
             setIsAllSelected(false);
             updatedFilters.delete("All Categories");
-            setSelectedFilters(updatedFilters);
           }
+          setSelectedFilters(updatedFilters);
+          currentFilter(updatedFilters)
         }
+
+      
     }
   };
 

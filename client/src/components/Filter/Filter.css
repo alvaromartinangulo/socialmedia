@@ -9,13 +9,13 @@
 .Filter .selected{
     background-color: var(--palette-red);
     color:var(--palette-yellow);
-
+    border-radius: 0.5rem;
 }
 
 .Filter .not-selected{
     background-color: transparent;
     color:var(--palette-yellow);
-
+    border-radius: 0.5rem;
 }
 
 .Filter ul{

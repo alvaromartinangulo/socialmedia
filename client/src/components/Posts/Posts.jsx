@@ -4,8 +4,9 @@ import Post from "./Post/Post";
 import { useSelector, useDispatch } from "react-redux";
 import "./Posts.css";
 import { useParams } from "react-router-dom";
+import { categoriesMap } from "../Filter/Filter";
 
-const Posts = () => {
+const Posts = ({appliedFilter}) => {
   const params = useParams()
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.authReducer.authData);
@@ -20,7 +21,9 @@ const Posts = () => {
       {loading
         ? "Loading"
         : posts.map((post, id) => {
+          if(appliedFilter.has("All Categories") || appliedFilter.has(categoriesMap.get(post.product_type.toLowerCase()))){
             return <Post data={post} key={id} />;
+        } 
           })}
     </div>
   );
