@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import "./Posts.css";
 import { useParams } from "react-router-dom";
 import { categoriesMap } from "../Filter/Filter";
+import Loader from "../Loader/Loader"
 
 const Posts = ({appliedFilter}) => {
   const params = useParams()
@@ -18,13 +19,13 @@ const Posts = ({appliedFilter}) => {
 /*   if(params.id) posts = posts.filter((post)=> post.userId===params.id) */
   return (
     <div className="Posts">
-      {loading
-        ? "Loading"
-        : posts.map((post, id) => {
+      {/* loading
+        ? */ <Loader/>
+        /* : posts.map((post, id) => {
           if(appliedFilter.has("All Categories") || appliedFilter.has(categoriesMap.get(post.product_type.toLowerCase()))){
             return <Post data={post} key={id} />;
         } 
-          })}
+          }) */}
     </div>
   );
 };
