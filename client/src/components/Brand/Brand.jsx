@@ -28,7 +28,7 @@ const Brand = () =>{
           {
             await BrandApi.getBrand(id).then((result) => {
               setBrand(result.data)
-              setFollowed(user.following.includes(brand._id))
+              setFollowed(user.following.includes(result.data._id))
             }
             )
           }
@@ -54,10 +54,10 @@ const Brand = () =>{
     return(
       <div className="Brand">
         {brand === null? "Loading":
-        <div className="BrandCard">
+        <div className="card">
         <div className="banner">
             <img src={brand.banner}></img>
-            <div className="brandLogo">
+            <div className="cardLogo">
               <img src={brand.profile_picture}/>
             </div>
         </div>

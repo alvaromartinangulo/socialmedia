@@ -6,9 +6,6 @@ import Vector from "../Images/Vector.svg"
 import { useSelector } from "react-redux";
 const Navbar = () =>{
     const { user } = useSelector((state) => state.authReducer.authData);
-    useEffect(() =>{
-        console.log(user)
-    })
     return(
         <div className="Navbar">
             <nav className="nav-body">
@@ -28,7 +25,9 @@ const Navbar = () =>{
                     />
                     <img src={Vector}/>
                     </div>
-                    <img className = "profilepic" src={user.profile_picture? user.profile_picture : profilepic}></img>
+                    <NavLink to={`/user/${user._id}` }className="profileNav">
+                    <img className = "profilepic" src={user.profile_picture? user.profile_picture : profilepic }/>
+                    </NavLink>
                 </ul>
             </nav>
         </div>

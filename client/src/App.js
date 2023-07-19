@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route, Outlet, Link } from "react-router-dom";
 import Auth from "./components/Auth/Auth";
 import Navbar from "./components/Navbar/Navbar";
 import Landing from "./components/Landing/Landing";
@@ -9,7 +9,8 @@ import ForYou from "./components/ForYou/ForYou";
 import Saved from "./components/Saved/Saved";
 import PostExpanded from "./components/Posts/Post/PostExpanded"
 import Brand from "./components/Brand/Brand";
-
+import Profile from "./components/Profile/Profile"
+import { Navigate } from "react-router-dom";
 function App() {
   const user = useSelector((state) => state.authReducer.authData);
 
@@ -32,6 +33,10 @@ function App() {
             element={<Following/>}
           />
           <Route
+            path="/user/:id"
+            element={user  ? <Profile/> : <Navigate to="../auth"/>}
+          />
+          <Route
             path="/foryou"
             element={<ForYou/>}
           />
@@ -43,10 +48,10 @@ function App() {
             path="/posts/:id"
             element={<PostExpanded/>}
           />
-          {<Route
+          <Route
             path="/brands/:id"
             element={<Brand/>}
-          />}
+          />
         </Route>{/* 
         <Route
           path="/profile/:id"

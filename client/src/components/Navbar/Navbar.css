@@ -21,7 +21,7 @@
 
 }
 .profilepic{
-    width:3rem;
+    width: 2.5rem;
     border-radius: 50%;
     border: 1.5px solid var(--palette-yellow); 
 }
@@ -119,4 +119,9 @@
     top: 50%;
     transform: translateY(-50%);
 
+}
+a.profileNav.active{
+    background: none;
+    border: none;
+    padding: 0;
 }
